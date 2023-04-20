@@ -17,7 +17,7 @@ import AddItem from "./index.js";
 //- an input with an "Add item:" label
 //- a button containing the value of the `buttonText` prop
 
-//need testProps to hand to the component when it is rendered, using spread operator
+//?need testProps to hand to the component when it is rendered, using spread operator
 
 
 
@@ -40,3 +40,15 @@ test("Input should have 'Add item' label", function () {
   //  Compare actual and expected to check if the label of the input has value of 'AddItem:'
   expect(actual).toHaveTextContent(expected);
 });
+
+test ("button should contain value of buttonText prop", function () {
+  const testProps = {
+    buttonText: "Add To List"
+  }
+  render (<AddItem {...testProps} />)
+  const actual = screen.getByText(testProps.buttonText)
+  const expected = "Add To List"
+  expect (actual).toHaveTextContent(expected);
+
+})
+//I don't understand how the testProps work ... because it feels like I'm just "giving" them the same value as the expected so if I keep them both the same won't it just pass anyway?????
