@@ -17,19 +17,24 @@ import AddItem from "./index.js";
 //- an input with an "Add item:" label
 //- a button containing the value of the `buttonText` prop
 
+//need testProps to hand to the component when it is rendered, using spread operator
+
+
+
+
 test("Input should have 'Add item' label", function () {
   // 3 As:
   // Arrange
   //  render the component
-  render(<AddItem />);
+  render(<AddItem/>);
 
   // screen.logTestingPlaygroundURL();
   // screen.debug();
 
   // Act
   //  Make a variable to assign the input that we want to check
-  const actual = screen.getByLabelText(/Add item:/i);
-  const expected = "Add item:";
+  const actual = screen.getByLabelText(/Add item:/);
+  const expected = /Add item:/;
 
   // Assert
   //  Compare actual and expected to check if the label of the input has value of 'AddItem:'
